@@ -1,4 +1,9 @@
 # pythonLogNotify
+
+USAGE:
+python main.py /path/to/logfile
+python main.py /var/log/messages
+
 python script that will index log file for entries on the  4th column from breakpoint ":"
 
 line 13: message_field = "SOMETHING_IS_WRONG_MESSAGE_FROM_LOG"
