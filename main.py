@@ -31,7 +31,7 @@ def send_email():
     SUBJECT = "Hostname %s has %s" % (socket.gethostname(), getMetric())  # Will change depending on what your checking
     TO = "person@receiverdomain.com"
     FROM = "py-do-not-reply@yourdomain.com"
-    text = "Hostname: %s, \nConnection Status: %s" % (socket.gethostname(), getMetric())
+    text = "Hostname: %s, \nMetric Status: %s" % (socket.gethostname(), getMetric())
     BODY = string.join((
         "From: %s" % FROM,
         "To: %s" % TO,
