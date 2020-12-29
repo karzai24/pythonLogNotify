@@ -2,6 +2,7 @@
 
 USAGE:
 python main.py /path/to/logfile
+
 python main.py /var/log/messages
 
 python script that will index log file for entries on the  4th column from breakpoint ":"
