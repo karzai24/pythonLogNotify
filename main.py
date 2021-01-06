@@ -8,9 +8,11 @@ import string
 import re
 import logging
 
+good_message = "ALL_GOOD_INDICATOR"
+bad_message = "SOMETHING_IS_WRONG_MESSAGE_FROM_LOG"
 
 def getMetric():
-    message_field = "SOMETHING_IS_WRONG_MESSAGE_FROM_LOG"
+    message_field = bad_message
     before = timedelta(minutes=15)
     now = datetime.now().replace(microsecond=0, year=1900)
     before = (now - before)
@@ -23,7 +25,7 @@ def getMetric():
                 matched_line = re.split(":", line)
                 return matched_line[3].lstrip().rstrip()
             else:
-                return "ALL_GOOD_INDICATOR"
+                return good_message
 
 
 def send_email():
@@ -47,8 +49,8 @@ def send_email():
 if __name__ == "__main__":
     logging.basicConfig(filename='sendmail.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
     metric_string = getMetric()
-    if metric_string == "SOMETHING_IS_WRONG_MESSAGE_FROM_LOG":
-        logging.warning("SOMETHING_IS_WRONG_MESSAGE_FROM_LOG")
+    if metric_string == bad_message:
+        logging.warning(metric_string)
         send_email()
     else:
-        logging.warning("ALL_GOOD_INDICATOR")
+        logging.warning(metric_string)
