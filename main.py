@@ -47,10 +47,10 @@ def send_email():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='sendmail.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
+    logging.basicConfig(filename='sendmail.log', filemode='a', format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s', level=10)
     metric_string = getMetric()
     if metric_string == bad_message:
         logging.warning(metric_string)
         send_email()
     else:
-        logging.warning(metric_string)
+        logging.info(metric_string)
