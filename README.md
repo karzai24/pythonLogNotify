@@ -6,6 +6,9 @@ python main.py /path/to/logfile
 Example:
 python main.py /var/log/messages
 
+It will go through the first 15 minutes of lines in the log file provided. It does this at line: 22 if datetime.strptime(line[0:15], '%b %d %X') < before:
+You will need to adjust the '%b %d %X' to match the format your log file date structure is set up
+
 python script that will index log file for entries on the  4th column from breakpoint ":"
 
 line 13: message_field = "SOMETHING_IS_WRONG_MESSAGE_FROM_LOG"
